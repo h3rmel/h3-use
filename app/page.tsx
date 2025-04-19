@@ -1,35 +1,32 @@
-import { CategoryCard } from '@/components/category-card';
-import { PageBanner } from '@/components/page-banner';
-import { PageGrid } from '@/components/page-grid';
+import { RainbowButton } from '@/components/magicui/rainbow-button';
+import { buttonVariants } from '@/components/ui/button';
 
-import { categories } from '@/config/hooks';
+import { cn } from '@/lib/utils';
 
 export default function Home() {
-  const sortedCategories = categories.sort((a, b) => {
-    if (a.isNew && !b.isNew) return -1;
-    if (!a.isNew && b.isNew) return 1;
-    return 0;
-  });
-
   return (
     <>
-      <PageBanner
-        title="Reusable, customizable and type-safe hooks built with and for React."
-        subtitle="An open-source collection of copy-and-paste hooks to help you quickly build applications. Open Source and Open Code."
-      />
-      <PageGrid>
-        {sortedCategories.map((category) => (
-          <CategoryCard
-            key={category.slug}
-            slug={category.slug}
-            name={category.name}
-            description={category.description}
-            icon={category.icon}
-            hooksCount={category.hooks.length}
-            isNew={category.isNew}
-          />
-        ))}
-      </PageGrid>
+      <section
+        className={cn('flex flex-col items-center justify-center grow gap-4')}
+      >
+        <hgroup
+          className={cn(
+            'text-center',
+            'flex flex-col items-center justify-center gap-4',
+          )}
+        >
+          <h1 className={cn('text-5xl font-bold', 'max-w-[18ch]')}>
+            Hooks Library for Software Engineers
+          </h1>
+          <p className={cn('max-w-[40ch]')}>
+            +50 free and open-source hooks build with React and TypeScript.
+            Perfect for your next project. Shadcn powered.
+          </p>
+        </hgroup>
+        <div className={cn('flex items-center justify-center gap-4')}>
+          <RainbowButton>Browse Hook</RainbowButton>
+        </div>
+      </section>
     </>
   );
 }

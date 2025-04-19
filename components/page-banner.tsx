@@ -20,17 +20,11 @@ export function PageBanner({
       <h1
         className={cn(
           'font-heading text-foreground text-3xl font-semibold tracking-normal md:text-4xl',
-          'max-w-[28ch]',
         )}
       >
         {title}
       </h1>
-      <p
-        className={cn(
-          'text-muted-foreground text-base md:text-lg',
-          'max-w-[64ch]',
-        )}
-      >
+      <p className={cn('text-muted-foreground text-base md:text-lg')}>
         {subtitle}
       </p>
       <div>{children}</div>
